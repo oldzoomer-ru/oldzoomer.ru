@@ -5,6 +5,17 @@ interface StatsCardProps {
   profile: GitHubProfile;
 }
 
+function formatDate(isoDate: string): string {
+  if (!isoDate) return 'Unknown';
+  try {
+    const date = new Date(isoDate);
+    if (isNaN(date.getTime())) return 'Unknown';
+    return date.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  } catch {
+    return 'Unknown';
+  }
+}
+
 export default function StatsCard({ profile }: StatsCardProps) {
   return (
     <div className="adwaita-pref-group">
@@ -29,7 +40,7 @@ export default function StatsCard({ profile }: StatsCardProps) {
           </div>
         </div>
         <p className="adwaita-bio" style={{ textAlign: 'center', marginTop: 16 }}>
-          On GitHub since {new Date(profile.created_at + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
+          On GitHub since {formatDate(profile.created_at)}
         </p>
       </div>
     </div>
