@@ -22,17 +22,16 @@ export async function fetchProfile(): Promise<GitHubProfile> {
 }
 
 export async function fetchProfileReadme(): Promise<string> {
-  const data = await fetchJson<{ content?: string; encoding?: string }>(
-    `${GITHUB_API_BASE}/repos/${USERNAME}/${USERNAME}/readme`
-  );
-  if (!data?.content) return '';
-  if (data.encoding === 'base64') {
-    const cleanBase64 = data.content.replace(/\s/g, '');
-    const binaryString = atob(cleanBase64);
-    const bytes = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
-    return new TextDecoder('utf-8').decode(bytes);
+  const response = await fetch(`${GITHUB_API_BASE}/repos/${USERNAME}/${USERNAME}/readme`, {
+    headers: {
+      'Accept': 'application/vnd.github.raw+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+    },
+  });
+  if (!response.ok) {
+    throw new Error(`GitHub API error: HTTP ${response.status}`);
   }
-  return data.content;
+  return response.text();
 }
 
 export async function fetchAllRepos(): Promise<GitHubRepo[]> {
