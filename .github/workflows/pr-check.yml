@@ -1,0 +1,37 @@
+name: PR Check
+
+on:
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  validate:
+    name: Validate PR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Type check
+        run: npx tsc --noEmit
+
+      - name: Build
+        run: npm run build
+
+      - name: Check dist size
+        run: |
+          SIZE=$(du -sk dist/ | cut -f1)
+          echo "Build size: ${SIZE} KB"
+          if [ "$SIZE" -gt 2048 ]; then
+            echo "::warning::Build size exceeds 2MB ($SIZE KB). Consider optimizing."
+          fi

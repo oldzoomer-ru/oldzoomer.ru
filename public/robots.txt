@@ -1,0 +1,15 @@
+# oldzoomer.ru — robots.txt
+# SEO: разрешаем индексацию всем поисковым системам
+
+User-agent: *
+Allow: /
+Allow: /repos
+
+# Sitemap location
+Sitemap: https://oldzoomer.ru/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Block access to build artifacts (if any)
+Disallow: /assets/

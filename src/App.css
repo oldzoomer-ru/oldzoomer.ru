@@ -1,0 +1,17 @@
+.retry-btn {
+  margin-top: 12px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--adwaita-card-border);
+  background-color: var(--adwaita-card-bg);
+  color: var(--adwaita-text);
+  transition: all 0.2s ease;
+}
+
+.retry-btn:hover {
+  border-color: var(--adwaita-accent);
+  color: var(--adwaita-accent);
+}

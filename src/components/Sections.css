@@ -1,0 +1,13 @@
+.adwaita-pref-group {
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.adwaita-pref-group-title {
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  color: var(--adwaita-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 8px 6px !important;
+}

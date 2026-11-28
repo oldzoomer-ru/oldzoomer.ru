@@ -1,0 +1,46 @@
+.adwaita-metrics-card {
+  background-color: var(--adwaita-card-bg);
+  border: 1px solid var(--adwaita-card-border);
+  border-radius: 12px;
+  padding: 24px !important;
+  margin-bottom: 24px;
+}
+
+.adwaita-metrics-row {
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.adwaita-metric {
+  background-color: var(--adwaita-bg);
+  border-radius: 8px;
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+  max-width: 180px;
+  padding: 16px 8px;
+}
+
+.adwaita-metric-value {
+  font-size: 28px !important;
+  font-weight: 700 !important;
+  color: var(--adwaita-accent);
+  margin: 0 0 4px 0 !important;
+}
+
+.adwaita-metric-label {
+  font-size: 12px !important;
+  color: var(--adwaita-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 !important;
+}
+
+.adwaita-bio {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--adwaita-text);
+  margin: 0;
+}

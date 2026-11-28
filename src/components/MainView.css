@@ -1,0 +1,23 @@
+.content-container {
+  max-width: 680px;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding: 0 16px !important;
+}
+
+.adwaita-sub-header {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.adwaita-contacts {
+  font-size: 13px;
+  color: var(--adwaita-text-secondary);
+  margin-bottom: 8px;
+}
+
+.adwaita-summary {
+  font-size: 15px;
+  line-height: 1.5;
+}

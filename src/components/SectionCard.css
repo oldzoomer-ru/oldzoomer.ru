@@ -1,0 +1,50 @@
+.adwaita-card {
+  background-color: var(--adwaita-card-bg);
+  border: 1px solid var(--adwaita-card-border);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  overflow: hidden;
+  width: 100%;
+}
+
+.adwaita-row {
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-bottom: 1px solid var(--adwaita-card-border);
+}
+
+.adwaita-row:last-child {
+  border-bottom: none;
+}
+
+.adwaita-row-content {
+  padding: 0;
+  margin: 0;
+}
+
+.adwaita-row-title {
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  margin: 0 0 4px 0 !important;
+}
+
+.adwaita-row-subtitle {
+  font-size: 13px;
+  color: var(--adwaita-accent);
+  font-weight: 500;
+  margin: 0 0 8px 0;
+}
+
+.adwaita-row-description {
+  font-size: 14px;
+  line-height: 1.4;
+  margin: 0 0 8px 0;
+}
+
+.adwaita-row-highlights {
+  font-size: 14px;
+  padding-left: 20px;
+  margin: 0;
+  color: var(--adwaita-text);
+}
