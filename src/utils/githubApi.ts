@@ -22,10 +22,15 @@ export async function fetchProfile(): Promise<GitHubProfile> {
 }
 
 export async function fetchProfileReadme(): Promise<string> {
-  const data = await fetchJson<any>(`${GITHUB_API_BASE}/repos/${USERNAME}/${USERNAME}/readme`);
+  const data = await fetchJson<{ content?: string; encoding?: string }>(
+    `${GITHUB_API_BASE}/repos/${USERNAME}/${USERNAME}/readme`
+  );
   if (!data?.content) return '';
   if (data.encoding === 'base64') {
-    return atob(data.content);
+    const cleanBase64 = data.content.replace(/\s/g, '');
+    const binaryString = atob(cleanBase64);
+    const bytes = Uint8Array.from(binaryString, (char) => char.charCodeAt(0));
+    return new TextDecoder('utf-8').decode(bytes);
   }
   return data.content;
 }
